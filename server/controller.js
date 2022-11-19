@@ -265,12 +265,12 @@ module.exports = {
     },
 
     deleteCity: (req, res) => {
-        let {cityId} = req.params
+        let {id} = req.params
 
         sequelize.query(`
-        delete *
+        delete
         from cities
-        where city_id = ${cityId};
+        where city_id = ${id};
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
